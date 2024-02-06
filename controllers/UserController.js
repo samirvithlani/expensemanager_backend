@@ -62,6 +62,7 @@ const loginUser = async (req, res) => {
           status: "success",
           data: token,
           role: userFromEmail.role,
+          id: userFromEmail._id,
         });
         console.log("4")
       } else {

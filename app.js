@@ -20,12 +20,13 @@ mongoose.connect("mongodb://127.0.0.1:27017/exp_manager_gls").then(() => {
 const roleRoutes = require('./routes/RoleRoutes');
 const userRoutes = require('./routes/UserRoutes');
 const expenseRoutes = require('./routes/ExpenseRoutes');
+const expenseCategoryRoutes = require('./routes/ExpenseCategoryRoutes');
 
 //use routes
 app.use("/api",roleRoutes);
 app.use("/api",userRoutes);
 app.use("/api",expenseRoutes);
-
+app.use("/api",expenseCategoryRoutes);
 
 const PORT = 4000
 app.listen(PORT, () => {

@@ -22,11 +22,12 @@ const createExpense = async (req, res) => {
 
 }
 
-const getAllExpenses = async (req, res) => {
+const getAllExpensesByUserId = async (req, res) => {
 
 
     try{
-        const expenses  = await expenseModel.find({status: true}).populate('category').populate('user');
+        //const expenses  = await expenseModel.find({status: true}).populate('category').populate('user');
+        const expenses =  await expenseModel.find({user: req.params.id}).populate('category').populate('user');
         if(expenses){
             res.status(200).json({
                 status: "success",
@@ -55,5 +56,5 @@ const getAllExpenses = async (req, res) => {
 }
 module.exports = {
     createExpense,
-    getAllExpenses
+    getAllExpensesByUserId
 }
